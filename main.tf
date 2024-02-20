@@ -15,7 +15,8 @@ provider "aws" {
 provider "github" {
   #organization = "myorgname"
   #token        = "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"
-  token         = "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"
+  #token         = "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"
+  token         = "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"      
 }
 
 resource "aws_api_gateway_rest_api" "git_webhook_api" {
@@ -134,7 +135,8 @@ resource "aws_lambda_permission" "apigw_lambda" {
   function_name = aws_lambda_function.webhook_lambda.function_name
   principal = "apigateway.amazonaws.com"
 
-  source_arn = "${aws_api_gateway_rest_api.git_webhook_api.execution_arn}/*/*/*"
+  #source_arn = "${aws_api_gateway_rest_api.git_webhook_api.execution_arn}/*/*/*"
+  source_arn = "${aws_api_gateway_rest_api.git_webhook_api.execution_arn}/*/*"
 }
 
 # resource "aws_cloudwatch_log_group" "lambda-webhook" {
