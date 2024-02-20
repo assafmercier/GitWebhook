@@ -12,6 +12,6 @@ exports.handler = async (event) => {
     })
   };
   
-  console.log("webhook")
+  console.log("Git webhook")
   return response;
   };
