@@ -160,7 +160,7 @@ resource "github_repository_webhook" "foo" {
     #url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_deployment.deployment.stage_name}${aws_api_gateway_resource.webhook.path}"
     url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_resource.webhook.path}"
     #url          = "${aws_api_gateway_deployment.this.invoke_url}${aws_api_gateway_stage.this.stage_name}${aws_api_gateway_resource.this.path}"
-    content_type = "form"
+    content_type = "json"
     insecure_ssl = true
   }
 
