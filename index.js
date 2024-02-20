@@ -12,5 +12,6 @@ exports.handler = async (event) => {
     })
   };
   
+  console.log("webhook")
   return response;
   };
