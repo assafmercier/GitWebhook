@@ -14,7 +14,8 @@ provider "aws" {
 
 provider "github" {
   #organization = "myorgname"
-  token        = "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"
+  #token        = "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"
+  token         = "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"
 }
 
 resource "aws_api_gateway_rest_api" "git_webhook_api" {
@@ -157,7 +158,7 @@ resource "github_repository_webhook" "foo" {
     url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_deployment.deployment.stage_name}${aws_api_gateway_resource.webhook.path}"
     #url          = "${aws_api_gateway_deployment.this.invoke_url}${aws_api_gateway_stage.this.stage_name}${aws_api_gateway_resource.this.path}"
     content_type = "form"
-    insecure_ssl = false
+    insecure_ssl = true
   }
 
   active = true
