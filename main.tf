@@ -16,7 +16,7 @@ provider "github" {
   #organization = "myorgname"
   #token        = "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"
   #token         = "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"
-  token         = "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"      
+  #token         = "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"      
 }
 
 resource "aws_api_gateway_rest_api" "git_webhook_api" {
@@ -157,7 +157,8 @@ resource "github_repository_webhook" "foo" {
 
   configuration {
     #url          = "https://google.de/"
-    url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_deployment.deployment.stage_name}${aws_api_gateway_resource.webhook.path}"
+    #url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_deployment.deployment.stage_name}${aws_api_gateway_resource.webhook.path}"
+    url           = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_resource.webhook.path}"
     #url          = "${aws_api_gateway_deployment.this.invoke_url}${aws_api_gateway_stage.this.stage_name}${aws_api_gateway_resource.this.path}"
     content_type = "form"
     insecure_ssl = true
